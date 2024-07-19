@@ -1,0 +1,39 @@
+<template>
+    <div class="" >
+        <lightning-accordion active-section-name="DraftLeave">
+            <lightning-accordion-section name="A" label="In Approval">
+                <div class="slds-p-around_medium" >
+                    <lightning-datatable
+                        key-field="LeaveId"
+                        columns={columns}
+                        data={inApprovalLeaves}
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+            </lightning-accordion-section>
+
+            <lightning-accordion-section name="B" label="Approved">
+                <div class="slds-p-around_medium" >
+                    <lightning-datatable
+                        key-field="LeaveId"
+                        columns={columns}
+                        data={approvedLeaves}
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+            </lightning-accordion-section>
+
+            <lightning-accordion-section name="C" label="Rejected">
+                <div class="slds-p-around_medium" >
+                    <lightning-datatable
+                        key-field="LeaveId"
+                        columns={columns}
+                        data={draftRejectedLeaves}
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </div>
+    
+</template>

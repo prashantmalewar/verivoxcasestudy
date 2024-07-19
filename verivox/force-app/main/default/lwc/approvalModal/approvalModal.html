@@ -1,0 +1,32 @@
+<template>
+        <template lwc:if={leaveDetails}>
+            <div class="c-container">
+                <lightning:layout>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="custom-box">Name : {leaveDetails.Employee__r.Employee__r.Name} </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="custom-box">Vacation Taken : <b>{leaveDetails.Employee__r.Vacation_Taken__c}</b> / {leaveDetails.Employee__r.Active_Vacation_Alloted__c} </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="custom-box">Dates  : <lightning-formatted-date-time value={leaveDetails.Start_Date__c}></lightning-formatted-date-time>    -  <lightning-formatted-date-time value={leaveDetails.End_Date__c}></lightning-formatted-date-time>  <b>&nbsp;&nbsp;({leaveDetails.No_Of_Days__c})</b></div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="custom-box">Remaining Vacation After Approve : {getNewRemainingVacation}</div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="custom-box">Type : {leaveDetails.Type__c}</div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+
+                <div class="slds-p-around_large slds-align_absolute-center slds-border_top">
+                    <lightning-button  type="Submit"  name="save"  variant="brand"  label="Approve" disabled= {disableActions} onclick={approveRecord}>
+                    </lightning-button>
+                    <lightning-button  type="Submit"  name="save"  variant="brand"  label="Reject" disabled= {disableActions} onclick={rejectRecord}>
+                    </lightning-button>
+                    <span lwc:if={isNotRightApprover}> Your not manager of  {leaveDetails.Employee__r.Employee__r.Name}! </span>
+                </div>
+            </div>
+        </template>
+
+</template>

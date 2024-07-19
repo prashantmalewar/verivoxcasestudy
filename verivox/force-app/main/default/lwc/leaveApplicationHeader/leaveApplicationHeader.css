@@ -1,0 +1,25 @@
+.flash-number{
+    
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.flash-text{
+    
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.color-green{
+    color: #28a745;
+}
+
+.color-red{
+    color: #dc3545;
+}
+
+.color-blue{
+    color: #007bff;
+}

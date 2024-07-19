@@ -1,0 +1,29 @@
+<template>
+    <lightning-modal-header label="Add Leave"></lightning-modal-header>
+    <lightning-modal-body> 
+        <lightning-record-edit-form object-api-name="Employee_Leave__c" onerror= {handleSubmitError} onsuccess= {handleSubmitSuccess}>
+
+            <div class="slds-p-around_large">
+                
+                <lightning-input-field field-name= "Employee__c" value= {employeeId}  class="slds-hide"> </lightning-input-field>
+
+                <lightning-input-field field-name= "Start_Date__c" value="" disabled= {disableAllFields}> </lightning-input-field>
+                
+                <lightning-input-field field-name= "End_Date__c" value="" disabled= {disableAllFields}></lightning-input-field>
+                
+                <lightning-select  name="type" label="Type"  options={leaveTypes} onchange={onTypeChange} disabled= {disableAllFields}></lightning-select>
+
+                    <lightning-input-field field-name= "Type__c" value= {leaveType}  class={showLeaveTypeClass} disabled= {disableAllFields}> </lightning-input-field>
+
+                <lightning-input-field field-name= "Status__c" value="Draft" disabled> </lightning-input-field>
+            </div>
+
+            <div class="slds-p-around_large slds-align_absolute-center slds-border_top">
+                <lightning-button  type="submit"  name="save"  variant="brand"  label="Save" disabled= {disableAllFields}>
+                </lightning-button>
+            </div>
+            
+        </lightning-record-edit-form>
+    </lightning-modal-body>
+    
+</template>
